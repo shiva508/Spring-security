@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 public class SpringSecurityInMemoryBasedConfig extends WebSecurityConfigurerAdapter{
 @Override
 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-	UserBuilder userBuilder=User.withDefaultPasswordEncoder();
+	/*UserBuilder userBuilder=User.withDefaultPasswordEncoder();*/
 	auth.inMemoryAuthentication().passwordEncoder(NoOpPasswordEncoder.getInstance())
 	.withUser("user").password("user").roles("USER")
 	.and()
@@ -25,7 +25,8 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 	protected void configure(HttpSecurity http) throws Exception {
 	http.authorizeRequests().antMatchers("/login").access("hasRole('ADMIN')")
 	.and().formLogin()
-	.loginPage("/").permitAll();
+	.loginPage("/").
+	permitAll();
 	/*.anyRequest().authenticated().and().httpBasic();*/
 	}
 }
