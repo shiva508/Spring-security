@@ -1,20 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script type="text/javascript" src="${pageContext.request.contextPath}/component/js/jquery.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/component/js/jquery-ui.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/component/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/component/js/placeholders.jquery.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/component/js/placeholders.jquery.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/component/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/component/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/component/js/bootstrap-datepicker.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/component/js/dataTables.bootstrap.js"></script>
-<link href="${pageContext.request.contextPath}/component/css/bootstrap.css" rel="stylesheet">
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/jquery.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/jquery-ui.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/placeholders.jquery.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/placeholders.jquery.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/bootstrap.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/dataTables.bootstrap.js"></script>
+<link
+	href="${pageContext.request.contextPath}/component/css/bootstrap.css"
+	rel="stylesheet">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,8 +33,11 @@
 <title>Log in page</title>
 </head>
 <body style='margin:50px;'>
+<c:if test="${param.error !=null }">
+Hi
+</c:if>
 <div class="wrapper">
-    <form class="form-signin" action="${pageContext.request.contextPath}/welcome" method="POST">       
+    <form class="form-signin" action="/welcome" method="POST">       
       <h2 class="form-signin-heading">Please login</h2>
       <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" style="width: 251px; margin-bottom: 23px;"/>
       <input type="password" class="form-control" name="password" placeholder="Password" required="" style="width: 251px;"/>      

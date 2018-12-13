@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled=true)
+/*@EnableGlobalMethodSecurity(securedEnabled=true)*/
 public class SpringSecurityInMemoryBasedConfig extends WebSecurityConfigurerAdapter{
 @Override
 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -23,10 +23,20 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 }
 @Override
 	protected void configure(HttpSecurity http) throws Exception {
-	http.authorizeRequests().antMatchers("/login").access("hasRole('ADMIN')")
+/*	http.authorizeRequests()
+	.anyRequest()
+	.authenticated()
+	.and()
+	.formLogin()
+	.loginPage("/")
+	.loginProcessingUrl("/springsecurity/welcome")
+	.permitAll();*/
+	http.authorizeRequests()
+	.antMatchers("/welcome").access("hasRole('ADMIN')")
 	.and().formLogin()
 	.loginPage("/").
-	permitAll();
+	permitAll()
+	.failureUrl("/welcome");
 	/*.anyRequest().authenticated().and().httpBasic();*/
 	}
 }
